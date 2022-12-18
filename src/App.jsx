@@ -1,15 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { QueryClient, QueryClientProvider } from "react-query";
+import "./App.css";
+import Characters from "./components/Characters";
 
+// Create a client
+const queryClient = new QueryClient();
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
-     
+      <QueryClientProvider client={queryClient}>
+        <Characters></Characters>
+      </QueryClientProvider>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
